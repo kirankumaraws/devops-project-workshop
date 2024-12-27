@@ -14,7 +14,7 @@
 
   - name: install java
     apt:
-     name: openjdk-17-jre
+     name: openjdk-11-jre
      state: present
 
   - name: install jenkins
@@ -22,7 +22,7 @@
      name: jenkins
      state: present
 
-  - name: start jenkins
+  - name: start jenkins service
     service:
      name: jenkins
      state: started
