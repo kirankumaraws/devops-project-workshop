@@ -3,30 +3,35 @@
   become: true
   tasks:
   - name: add jenkins key
-    apt_key:
-     url: https://pkg.jenkins.io/debian-stable/jenkins.io-2023.key
-     state: present
+    apt_key: 
+      url: https://pkg.jenkins.io/debian-stable/jenkins.io-2023.key 
+      state: present
 
   - name: add jenkins repo
-    apt_repository:
-     repo: 'deb https://pkg.jenkins.io/debian-stable binary/'
-     state: present
-
+    apt_reporsitory: 
+      repo: 'deb https://pkg.jenkins.io/debian-stable binary/'
+      state: present
+  
   - name: install java
-    apt:
-     name: openjdk-11-jre
-     state: present
+    apt: 
+      name: openjdk-11-jre
+      state: present
 
   - name: install jenkins
     apt:
-     name: jenkins
-     state: present
-  
-  - name: start jenkins
-    service:
-     state: started
+      name: jenkins
+      state: present
 
-  - name: enable jenkins to start at boot time
-    service:
-     enabled: yes
-     
+  - name: start jenkins
+    service: 
+      name: jenkins
+      state: started
+
+  - name: enable jenkins at boot
+    service: 
+      name: jenkins
+      enabled: yes
+
+
+
+
